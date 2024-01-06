@@ -1,13 +1,13 @@
-from flask import Flask, render_template, request
 import pandas as pd
+from flask import Flask, render_template, request
+from modelos.items import MontaListaImagensProdutos
 
-from modelos.items import lista_produtos
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    produtos = lista_produtos
+    produtos = MontaListaImagensProdutos("pagina_afiliado/static/images").lista_produtos
 
     if request.method == 'POST':
         data = request.form.to_dict()

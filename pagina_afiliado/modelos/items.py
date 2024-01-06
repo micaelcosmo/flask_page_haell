@@ -1,47 +1,45 @@
-lista_produtos = [
-        {
-            "descricao": "Descrição do Produto 1",
-            "video_url": "https://video.aliexpress-media.com/play/u/ae_sg_item/3000001514509/p/1/e/6/t/10301/4000118346838.mp4",
-            "pedido_url": "https://s.click.aliexpress.com/e/_DBQi7Cd",
-            "imagens": [
-                "../static/images/faixa_bluetooth_comum/faixa0.png",
-                "../static/images/faixa_bluetooth_comum/faixa1.png",
-                "../static/images/faixa_bluetooth_comum/faixa2.png",
-                "../static/images/faixa_bluetooth_comum/faixa3.png",
-                "../static/images/faixa_bluetooth_comum/faixa4.png",
-                "../static/images/faixa_bluetooth_comum/faixa5.png",
-                "../static/images/faixa_bluetooth_comum/faixa6.png",
-                # Adicione mais URLs de imagens conforme necessário
-            ]            
-        },
-      
-        {
-            "descricao": "Descrição do Produto 2",
-            "video_url": "https://video.cdn.aliexpress-media.com/vod-4e6a43/037ecff0779c71eebf8e1426d1800102/40b76f52f41b49f481553ef173137fb9-ec2e363f3ab4e9f0f4462208279c6fd4-sd.mp4",
-            "pedido_url": "https://s.click.aliexpress.com/e/_DEAgWdf",
-            "imagens": [
-                "../static/images/faixa_bluetooth_ergometrica/main_0_.png",
-                "../static/images/faixa_bluetooth_ergometrica/main_1_.png",
-                "../static/images/faixa_bluetooth_ergometrica/main_2_.png",
-                "../static/images/faixa_bluetooth_ergometrica/main_3_.png",
-                "../static/images/faixa_bluetooth_ergometrica/main_4_.png",
-                "../static/images/faixa_bluetooth_ergometrica/main_5_.png",
-                "../static/images/faixa_bluetooth_ergometrica/main_6_.png",
-                "../static/images/faixa_bluetooth_ergometrica/main_7_.png",
-                "../static/images/faixa_bluetooth_ergometrica/main_8_.png",
-                "../static/images/faixa_bluetooth_ergometrica/main_9_.png",
-                # Adicione mais URLs de imagens conforme necessário
-            ]            
-        },
-        {
-            "descricao": "Descrição do Produto 3",
-            "video_url": "https://video.cdn.aliexpress-media.com/vod-4e6a43/037ecff0779c71eebf8e1426d1800102/40b76f52f41b49f481553ef173137fb9-ec2e363f3ab4e9f0f4462208279c6fd4-sd.mp4",
-            "pedido_url": "https://s.click.aliexpress.com/e/_DEAgWdf",
-            "imagens": [
-                "https://ae01.alicdn.com/kf/Sf63d7d6b94544503a7a18f5b9430350aU/Ru-do-Branco-Cancelando-Auscultadores-do-Sono-HD-3D-Bluetooth-5-2-M-scara-de-Olho.jpg_640x640.jpg_.webp",
-                # Adicione mais URLs de imagens conforme necessário
-            ]            
-        },
-      
-        # Adicione mais itens conforme necessário
-    ]
+import os
+import ast
+
+
+class MontaListaImagensProdutos:
+    def __init__(self, base_dir):
+        self.base_dir = base_dir
+        self._lista_produtos = []
+        self._busca_lista_imagens_por_diretorio()
+
+    @property
+    def lista_produtos(self):
+        return self._lista_produtos
+
+    @staticmethod
+    def _busca_lista_diretorio(dir):
+        lista_diretorios = os.listdir(dir)
+        return lista_diretorios
+    
+    @staticmethod
+    def _monta_lista_png(diretorio:str=''):
+        lista_arquivos_png = []
+        dentro_do_diretorio = '/'.join(diretorio.split('/')[1:])
+        for arquivo in os.listdir(diretorio):
+            if arquivo.split('.')[-1] == 'png':
+                lista_arquivos_png.append(f'{dentro_do_diretorio}/{arquivo}')
+        return lista_arquivos_png
+    
+    @staticmethod
+    def _busca_config_por_diretorio(diretorio:str=''):
+        config_diretorio = {}
+        with open(f'{diretorio}/folder_config.txt', 'r', encoding='utf-8') as arquivo:
+            config_diretorio = ast.literal_eval(arquivo.read())
+        return config_diretorio
+    
+    def _busca_lista_imagens_por_diretorio(self):
+        diretorios = self._busca_lista_diretorio(self.base_dir)
+        for diretorio in diretorios:
+            lista_imagens = self._monta_lista_png(f'{self.base_dir}/{diretorio}')
+            config_diretorio = self._busca_config_por_diretorio(f'{self.base_dir}/{diretorio}')
+            config_diretorio.update({
+                "imagens": lista_imagens
+                })
+            self.lista_produtos.append(config_diretorio)
+            

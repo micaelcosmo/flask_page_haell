@@ -1,0 +1,5 @@
+{
+    "descricao": "Descrição do Produto 3",
+    "video_url": "https://video.cdn.aliexpress-media.com/vod-4e6a43/037ecff0779c71eebf8e1426d1800102/40b76f52f41b49f481553ef173137fb9-ec2e363f3ab4e9f0f4462208279c6fd4-sd.mp4",
+    "pedido_url": "https://s.click.aliexpress.com/e/_DEAgWdf"
+}
