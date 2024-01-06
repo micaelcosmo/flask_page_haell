@@ -33,6 +33,15 @@ lista_produtos = [
                 # Adicione mais URLs de imagens conforme necessário
             ]            
         },
+        {
+            "descricao": "Descrição do Produto 3",
+            "video_url": "https://video.cdn.aliexpress-media.com/vod-4e6a43/037ecff0779c71eebf8e1426d1800102/40b76f52f41b49f481553ef173137fb9-ec2e363f3ab4e9f0f4462208279c6fd4-sd.mp4",
+            "pedido_url": "https://s.click.aliexpress.com/e/_DEAgWdf",
+            "imagens": [
+                "https://ae01.alicdn.com/kf/Sf63d7d6b94544503a7a18f5b9430350aU/Ru-do-Branco-Cancelando-Auscultadores-do-Sono-HD-3D-Bluetooth-5-2-M-scara-de-Olho.jpg_640x640.jpg_.webp",
+                # Adicione mais URLs de imagens conforme necessário
+            ]            
+        },
       
         # Adicione mais itens conforme necessário
     ]
