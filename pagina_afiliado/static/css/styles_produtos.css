@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.grid-item:hover .caption {
+    opacity: 1;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 5px;
+    margin-top: 5px;
+    background-color: #00c7ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button-link:hover {
+    background-color: #009ec3;
+}
+
+/* ------------------------------------------------------ */
+.carousel-container {
+    width: 100%;
+    /* outros estilos */
+  }
+  
+  .carousel {
+    position: relative;
+    max-width: 100%; /* Ajuste conforme necessário */
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .carousel-image {
+    max-width:100%;
+    height: auto;
+    display: none; /* Esconder todas as imagens inicialmente */
+  }
+  
+  .carousel-button {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+
+  /* Estilo do modal */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed; /* Fica fixo na tela */
+    z-index: 1; /* Fica no topo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Habilita a barra de rolagem se necessário */
+    background-color: rgb(0,0,0); /* Fundo preto */
+    background-color: rgba(0,0,0,0.4); /* Preto com opacidade */
+  }
+  
+  /* Conteúdo/Box do modal */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% do topo e centralizado horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* Largura do modal */
+  }
+  
+  /* Botão para fechar o modal */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
