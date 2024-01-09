@@ -22,8 +22,9 @@
         </div>
         <div class="caption">
             <p>{{ item.descricao }}</p>
+            <p>{{ item.valor }}</p>
             <button class="button-link" id="openModal{{ loop.index }}">Ver o Vídeo</button>
-            <a href="{{ item.pedido_url }}" class="button-link">Pedir Agora</a>
+            <a href="{{ item.pedido_url }}" class="button-link" target="_blank">Pedir Agora</a>
         </div>
     </div>
     <div id="videoModal{{ loop.index }}" class="modal">

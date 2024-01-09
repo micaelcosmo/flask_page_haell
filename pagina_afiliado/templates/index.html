@@ -9,8 +9,10 @@
 <body>
     <div class="grid-container">
         <header class="cabecalho">
-            <div class="logo">haelltec</div>
-            <div class="titulo">Título da Página</div>
+            <div class="logo">
+                <img class="logo" src="../static/img/logo/logohaelltec.png">
+            </div>
+            <div class="titulo">LOJA HAELLTEC</div>
             <nav class="menu">
                 <button>Inicio</button>
                 <button>Produtos</button>
@@ -23,16 +25,23 @@
         <main class="corpo">
             <iframe class="iframe_pg" id="iframe_produtos" src="{{ url_for('home') }}"></iframe>
         </main>
-
+        
         <footer class="foot">
-            <form id="myForm" method="post">
-                <input type="text" name="nome" placeholder="Nome">
-                <input type="email" name="email" placeholder="E-mail">
-                <input type="tel" name="telefone" placeholder="Número para contato">
-                <textarea name="mensagem" placeholder="Breve mensagem"></textarea>
-                <button type="submit">Enviar</button>
-            </form>
+            <div class="moldura_form">
+                <div class="titulo_form"><h2>DEIXE UMA MENSAGEM</h2></div>
+                <form id="myForm" method="post">
+                    <input type="text" name="nome" placeholder="Nome">
+                    <input type="email" name="email" placeholder="E-mail">
+                    <input type="tel" name="telefone" placeholder="Número para contato">
+                    <textarea name="mensagem" placeholder="Breve mensagem"></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
         </footer>
+        <div class="rodape">
+            <p>HAELLTEC ©</p>
+            <h3 class="direitos">◄ Feito em pytho com Flask. Todos os direitos reservados. ►</h3>
+        </div>
     </div>
 </body>
 </html>

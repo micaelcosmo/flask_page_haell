@@ -2,35 +2,67 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color: #2f3038;
 }
 
 .grid-container {
   display: grid;
-  grid-template-rows: 20% 65% 15%;
-  height: 100%;
+  grid-template-columns: 1fr; /* Uma coluna */
+  grid-template-rows: auto minmax(100%, 1fr) auto; /* Cabeçalho auto, conteúdo 1fr, rodapé auto */
+  height: 100vh; /* 100% da altura da viewport */
 }
 
 .cabecalho {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding: 5 10px;
+  border-bottom: 1px solid #77ecf9; /* Cor e espessura da borda inferior */
+  background-color: #121316;
 }
 
 .logo {
-  font-size: 20px;
-  font-weight: bold;
+  flex-grow: 0.5; /* Permite que a logo cresça para ocupar o espaço disponível */
+  display: flex;
+  justify-content: flex-start; /* Alinha a logo à esquerda */
+  width: 25%;
+  height: 100%;
 }
 
 .titulo {
-  font-size: 24px;
+  flex-grow: 1;
+  display: flex;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;  
+  justify-content: center;
+  font-size: 96px;
   color: #fff;
-  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff;
+  animation: pulsate 2s infinite; /* 2s para uma animação de 2 segundos, infinite para repetição infinita */
+}
+
+@keyframes pulsate {
+  0% {
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff;
+  }
+  50% {
+    text-shadow: 0 0 20px #0fc, 0 0 30px #0fd, 0 0 40px #0fe, 0 0 50px #0ff;
+  }
+  100% {
+    text-shadow: 0 0 10px #0cf, 0 0 20px #0df, 0 0 30px #0ef, 0 0 40px #0ff;
+  }
+}
+
+
+.menu {
+  flex-grow: 1; /* Permite que o menu cresça para ocupar o espaço disponível */
+  display: flex;
+  justify-content: flex-end; /* Alinha o menu à direita */
+  margin-top: 5%;
 }
 
 .menu button {
   margin: 0 5px;
 }
+
 
 .iframe_pg {
   width: 100%;
@@ -49,6 +81,61 @@ body, html {
   align-items: center;
 }
 
-.foot input, .foot textarea {
+.foot input, textarea {
   margin: 5px;
+}
+
+.moldura_form {
+  display: block;
+  width: 60%;
+  align-items: center;
+  border: 1.5px solid #89CFF0; /* Azul bebê */
+  border-radius: 10px; /* Cantos arredondados */
+  padding: 10px; /* Espaçamento interno para não encostar no formulário */
+  margin: auto;
+}
+
+/* Opcional: se você quiser adicionar um pouco de espaço ao redor da moldura */
+
+.titulo_form {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+  animation: pulsate 2s infinite; /* 2s para uma animação de 2 segundos, infinite para repetição infinita */
+}
+
+.foot input {
+  width: 70%; /* Largura do campo de input */
+  height: 30px; /* Altura do campo de input */
+  padding: 5px; /* Espaçamento interno no campo de input */
+  margin: 5px 0; /* Margem acima e abaixo do campo de input */
+  font-size: 16px; /* Tamanho da fonte no campo de input */
+  border-radius: 5px; /* Cantos arredondados */
+}
+
+.foot textarea {
+  width: 70%; /* Largura da área de texto */
+  height: 100px; /* Altura da área de texto */
+  padding: 5px; /* Espaçamento interno na área de texto */
+  font-size: 16px; /* Tamanho da fonte na área de texto */
+  border-radius: 5px; /* Cantos arredondados */
+  grid-row-start: 3; /* Posiciona o footer na terceira linha do grid */
+  grid-row-end: 4; /* Termina na quarta linha (que é o fim do grid) */
+}
+
+.rodape {
+  text-align: center;
+  background-color: #333;
+  width: 100%;
+}
+
+.rodape p {
+  display: block;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
 }

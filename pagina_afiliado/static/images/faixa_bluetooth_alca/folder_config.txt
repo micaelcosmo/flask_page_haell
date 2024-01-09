@@ -1,5 +1,6 @@
 {
-    "descricao": "Descrição do Produto 3",
-    "video_url": "https://video.cdn.aliexpress-media.com/vod-4e6a43/037ecff0779c71eebf8e1426d1800102/40b76f52f41b49f481553ef173137fb9-ec2e363f3ab4e9f0f4462208279c6fd4-sd.mp4",
+    "descricao": "Descrição do Produto 1",
+    "valor": "R$ 27,00",
+    "video_url": "https://video.aliexpress-media.com/play/u/ae_sg_item/2215820596247/p/1/e/6/t/10301/1100060064848.mp4?from=chrome",
     "pedido_url": "https://s.click.aliexpress.com/e/_DEAgWdf"
 }
