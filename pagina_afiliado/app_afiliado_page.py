@@ -1,16 +1,16 @@
 import os
 import openpyxl
-import pandas as pd
 from flask import Flask, render_template, request, jsonify
 from modelos.items import MontaListaImagensProdutos
 
 
 app = Flask(__name__)
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
-    return render_template('cabecalho.html')
+    return render_template('index.html')
 
 @app.route('/grade_produtos.html')
 def home():
@@ -65,5 +65,6 @@ def get_next_form_number():
     # Pode ser lido do diretório ou banco de dados
     return 1
 
-if __name__ == '__main__':
-    app.run(host='127.0.4.20', port=36963)
+
+if __name__ == '__main__':    
+    app.run(host='127.0.4.20', port=36963, debug=True)
