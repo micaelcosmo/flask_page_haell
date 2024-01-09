@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Página com Grid</title>
+    <link rel="stylesheet" href="../static/css/styles_cabecalho.css">
+    <script src="../static/js/script_cabecalho.js" defer></script>
+</head>
+<body>
+    <div class="grid-container">
+        <header class="cabecalho">
+            <div class="logo">haelltec</div>
+            <div class="titulo">Título da Página</div>
+            <nav class="menu">
+                <button>Inicio</button>
+                <button>Produtos</button>
+                <button>Sobre Nós</button>
+                <button>Contato</button>
+                <button>Cadastrar</button>
+            </nav>
+        </header>
+        
+        <main class="corpo">
+            <iframe class="iframe_pg" id="iframe_produtos" src="{{ url_for('home') }}"></iframe>
+        </main>
+
+        <footer class="foot">
+            <form id="myForm" method="post">
+                <input type="text" name="nome" placeholder="Nome">
+                <input type="email" name="email" placeholder="E-mail">
+                <input type="tel" name="telefone" placeholder="Número para contato">
+                <textarea name="mensagem" placeholder="Breve mensagem"></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </footer>
+    </div>
+</body>
+</html>
