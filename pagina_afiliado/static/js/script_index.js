@@ -27,7 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             // Exibindo a janela pop-up após o envio bem-sucedido
             alert('Enviado com sucesso!');
-
+            
+            // Limpar o formulário
+            form.reset();
             // Aqui você pode adicionar qualquer lógica adicional após o envio bem-sucedido
         })
         .catch(error => {
