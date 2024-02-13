@@ -38,15 +38,3 @@ def save_to_excel(data, app):
     row_data = [data['nome'], data['email'], data['telefone'], data['mensagem']]
     sheet.append(row_data)
     workbook.save(filename)
-
-def allowed_file(filename):
-    """
-    Check if the given filename has an allowed extension.
-
-    Args:
-        filename (str): The name of the file to check.
-
-    Returns:
-        bool: True if the file has an allowed extension, False otherwise.
-    """
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
